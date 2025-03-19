@@ -1,0 +1,29 @@
+samasya:
+  label: samasya
+  permalink: /samasya
+  description: A TypeScript-based mathematical library inspired by math.js
+
+hello:
+  label: hello
+  permalink: /hello
+  description: General introductory or greeting-related posts
+
+hola:
+  label: hola
+  permalink: /hola
+  description: Posts with a friendly tone or announcements
+
+update:
+  label: update
+  permalink: /update
+  description: Posts about new updates, releases, and improvements in the project
+
+features:
+  label: features
+  permalink: /features
+  description: Deep dives into the features and capabilities of the library
+
+contributions:
+  label: contributions
+  permalink: /contributions
+  description: Information on contributing to the library, including guidelines and community efforts

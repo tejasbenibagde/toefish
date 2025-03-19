@@ -1,0 +1,16 @@
+src/
+tests/
+.husky/
+.eslintrc.js
+.prettierrc
+jest.config.js
+tsconfig.json
+.gitignore
+package-lock.json
+
+CONTRIBUTING.md
+DEVELOPMENT_GUIDE.md
+CHANGELOG.md
+
+docs/
+netlify.toml
