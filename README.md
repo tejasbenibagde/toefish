@@ -1,125 +1,96 @@
-# [samasya](https://samasya-docs.netlify.app)
+# 🐟 ToeFish - Tic Tac Toe AI Engine
 
-[![NPM Version](https://img.shields.io/npm/v/samasya)](https://www.npmjs.com/package/samasya)
-[![License](https://img.shields.io/npm/l/samasya)](https://github.com/tejasbenibagde/samasya/blob/main/LICENSE)
-[![Downloads](https://img.shields.io/npm/dt/samasya)](https://www.npmjs.com/package/samasya)
+ToeFish is a powerful, customizable AI for Tic-Tac-Toe built with **TypeScript** and **Minimax Algorithm**. It supports different difficulty levels (1-10) and can be used in **web apps, games**.
 
-samasya is a TypeScript-based mathematical library inspired by math.js, designed to provide a comprehensive set of mathematical functions and utilities for JavaScript and TypeScript projects.
+## 🚀 Features
+- 🔥 **AI-powered moves** using Minimax algorithm.
+- 🎚️ **Adjustable difficulty (1-10)** for different skill levels.
+- 🖥️ **Play against AI** and integrate into web apps.
+- ✅ **Fully tested** with Jest.
 
-## 📚 Documentation
-
-Explore the full documentation at **[https://samasya-docs.netlify.app](https://samasya-docs.netlify.app)**. It includes detailed usage examples, API references, and more.
-
-
-## 🌟 Features
-
-### Core Arithmetic Operations
-- **Basic Arithmetic**: Addition, subtraction, multiplication, and division for both numbers and arrays.
-- **Modular Arithmetic**: Operations such as modulo, modular addition, subtraction, multiplication, and exponentiation.
-
-### Advanced Mathematical Capabilities
-- **Power and Root Calculations**: Compute powers and nth roots of numbers.
-- **Prime and Factorial Functions**: Compute factorials with modulus and enhance prime-related functionalities.
-
-### Algebraic and Expression Evaluation
-- **Algebraic Evaluator**: A new `Evaluator` class that supports algebraic expressions with variables, constants, and built-in functions (e.g., `sqrt`, `log`, `sin`, `cos`).
-- **Chaining Operations**: Chain multiple arithmetic operations in a fluent API style.
-- **Dynamic Expressions**: Evaluate complex algebraic expressions dynamically, with support for custom functions and variables.
-
-### Cryptography-Oriented Features
-- **Modular Cryptographic Functions**: Perform modular hashing, encryption, and decryption.
-
-### High-Precision and Big Numbers
-- **BigNumber**: Built on [Decimal.js](https://mikemcl.github.io/decimal.js/) for handling large floating-point numbers with complete precision.
-- **BigInt**: A custom implementation leveraging JavaScript's native `BigInt` for arbitrary-sized integer operations.
-
-### Robust Design
-- **Error Handling**: Comprehensive error handling for invalid inputs and edge cases.
-
+---
 
 ## 📦 Installation
+Install ToeFish using **npm** or **yarn**:
 
-You can install samasya using npm:
+```sh
+npm install toefish
+# OR
+yarn add toefish
 
-```bash
-npm install samasya
 ```
 
-## 🚀 Quick Start
+## Usage
 
-### Basic Arithmetic Example
+### basic AI move Calculation
+```ts
+import { getBestMove } from "toefish";
 
-```typescript
-import { add, multiply } from 'samasya';
+const board = ["X", "O", "X", "", "O", "", "", "", ""]; // Current board state
+const difficulty = 5; // AI skill level (1-10)
 
-console.log(add(2, 3)); // Output: 5
-console.log(multiply([2, 3, 4])); // Output: 24
+const aiMove = getBestMove(board, difficulty);
+console.log(`AI plays at index: ${aiMove}`);
 ```
 
-### Chaining Example
+### Full Game Simulation
+```ts
+import { Game } from "toefish";
 
-```typescript
-import { Chain } from 'samasya';
-
-const result = new Chain(5).add(3).multiply(2).getResult();
-console.log(result); // Output: 16
+const game = new Game();
+game.makeMove(0); // Player 'X' moves
+const aiMove = getBestMove(game.getBoard(), 10);
+game.makeMove(aiMove); // AI 'O' moves
+console.log(game.getBoard());
 ```
 
-## 🛠 Development
+## 📖 API Reference
 
-To set up the project for development:
+## `getBestMove(board: string[], difficulty: number): number`
+Finds the best move for the AI based on the Minimax algorithm.
 
-1. Clone the repository:
+- **`board`**: The current Tic-Tac-Toe board (`["X", "", "O", ...]`).
+- **`difficulty`**: AI skill level (`1` = easy, `10` = hard).
+- **Returns**: The **best move index** (0-8) or `-1` if no moves left.
 
-   ```bash
-   git clone https://github.com/tejasbenibagde/samasya.git
-   cd samasya
-   ```
+---
 
-2. Install dependencies:
+## **`Game` Class**
+Handles Tic-Tac-Toe game logic.
 
-   ```bash
-   npm install
-   ```
+### `new Game()`
+Creates a new game.
 
-3. Run tests:
+### `game.getBoard()`
+Returns the **current board state**.
 
-   ```bash
-   npm test
-   ```
+### `game.makeMove(index: number)`
+Attempts a move at `index`.  
+- **Returns**: `true` if valid, `false` otherwise.
 
-4. Build the project:
-   ```bash
-   npm run build
-   ```
+### `game.checkWinner()`
+Returns one of the following:
+- `"X"` (X wins)
+- `"O"` (O wins)
+- `"draw"` (Game is a draw)
+- `null` (Game still ongoing)
 
-## Contributing
+---
 
-We welcome contributions to samasya! Please see our [Contributing Guide](CONTRIBUTING.md) for more details on how to get started.
+## 🎯 **Contributing**
+We welcome contributions! Feel free to:
+- Report bugs  
+- Suggest new features  
+- Improve AI strategy  
 
-## License
+Fork the repo and submit a PR!
 
-samasya is [MIT licensed](LICENSE).
+---
 
-## Author
+## 📜 **License**
+MIT License. Free to use and modify.
 
-samasya is created and maintained by [Tejas Benibagde](https://github.com/tejasbenibagde).
+---
 
-## Support
-
-If you encounter any issues or have questions, please file an issue on our [GitHub issues page](https://github.com/tejasbenibagde/samasya/issues).
-
-## Acknowledgements
-
-This project is inspired by [math.js](https://mathjs.org/). We're grateful to the math.js team for their excellent work, which has served as a reference for many of the features planned for samasya.
-
-## Roadmap
-
-- Add expression parsing and evaluation
-- Develop unit conversion capabilities
-- Implement matrix and vector operations
-- Add complex number support
-- Develop statistical functions
-- Implement symbolic computation features
-
-Stay tuned for updates!
+🚀 **ToeFish – Smartest Tic-Tac-Toe AI!**  
+🐟 Made with ❤️ by Tejas Benibagde
