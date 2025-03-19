@@ -1,6 +1,6 @@
 {
   "name": "toefish",
-  "version": "1.4.0",
+  "version": "1.0.0",
   "description": "ToeFish 🐟 is a smart Tic-Tac-Toe AI that always plays the best move. Challenge it if you dare—can you beat the unbeatable? ❌⭕🚀",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .ts",
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
     "prepare": "husky install",
-    "prepublishOnly": "npm run build && npm test"
+    "prepublishOnly": "npm run build && npm test",
+    "cli-test": "tsc && npx ts-node src/core/cli.ts"
   },
   "author": "Tejas Benibagde",
   "license": "MIT",
